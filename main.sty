@@ -1,0 +1,111 @@
+\ProvidesPackage{main}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{makeidx} %- makes index -%
+\usepackage{graphicx}
+\usepackage{natbib}	% citep
+%\usepackage{tikz} %- not Miktex standard -%
+%\usepackage{booktabs} %- not Miktex standard -%
+%\usepackage{tocloft} %- not Miktex standard 
+\usepackage[linkbordercolor={1 1 1}]{hyperref} %- makes pdf hyperlinks, white borders. always last usepackege!! -%
+
+%----------- document parts -----------------%
+\newcommand{\subsubsubsection}[1]{#1}
+
+%----------- theorems -----------------%
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+\newtheorem{remark}[example]{Remark}
+\newtheorem{definition}[example]{Definition}
+\newtheorem{hypothesis}[example]{Hypothesis}
+\newtheorem{open-question}[example]{Open question}
+\newtheorem{conjecture}[example]{Conjecture}
+\newtheorem{algorithm}[example]{Algorithm}
+\newtheorem{theorem}[example]{Theorem}	%- same numbering as example -%
+\newtheorem{proposition}[example]{Proposition}
+\newtheorem{lemma}[example]{Lemma}
+
+\newcommand{\eq}[1]{ \begin{align} #1 \end{align} }
+\newcommand{\tableW}[3]{\begin{table}[h] \begin{center} \begin{tabular}#2 \end{tabular} #1 \end{center} \end{table} }
+
+%----------- bibtex bibliography -----------------%
+\bibliographystyle{plain}
+
+%-------- references -%
+\newcommand{\chapRef}[1]{\hyperref[#1]{Chapter \ref*{#1}}}
+\newcommand{\secRef}[1]{\hyperref[#1]{Section \ref*{#1}}}	%- Section reference. -%
+
+\renewcommand{\ref}[1]{\ref{#1}}
+\newcommand{\defRef}[1]{\hyperref[#1]{Definition \ref*{#1}}}
+\newcommand{\expRef}[1]{\hyperref[#1]{Example \ref*{#1}}}
+\newcommand{\theoRef}[1]{\hyperref[#1]{Theorem \ref*{#1}}}
+\newcommand{\propRef}[1]{\hyperref[#1]{Proposition \ref*{#1}}}
+\newcommand{\remRef}[1]{\hyperref[#1]{Remark \ref*{#1}}}
+
+\newcommand{\eqRef}[1]{\hyperref[#1]{(\ref*{#1})}} %- Equation reference. between parenthesis -%
+\newcommand{\figRef}[1]{\hyperref[#1]{Figure \ref*{#1}}} %- Figure reference. between parenthesis -%
+
+
+%-- math only, no form -----------------------------------------------%
+%- analysis -%
+
+%- limits -%
+\newcommand{\tendsTo}{\longrightarrow}
+\newcommand{\notTendTo}{\nrightarrow}
+
+%- derivatives -%
+\newcommand{\der}[2]{\frac{d#1}{d#2}}	%- derivative -%
+\newcommand{\derAt}[3]{\left.\frac{d#1}{d#2}\right|_{#2=#3}}	%- value of derivative evaluated AT a point-%
+\newcommand{\parDer}[2]{\frac{\partial #1}{\partial #2 }}	%- partial derivative -%
+\newcommand{\grad}{\nabla}		%- gradient -%
+
+%- norms and products -%
+\newcommand{\proj}[1]{proj_{#1}}
+\newcommand{\measure}[1]{meas(#1)}
+\newcommand{\norm}[1]{\left|\left| #1\right|\right|}
+\newcommand{\normOne}[1]{{\left|\left| #1\right|\right|}_1}
+\newcommand{\normTwo}[1]{{\left|\left| #1\right|\right|}_2}
+\newcommand{\normSup}[1]{{\left|\left| #1\right|\right|}_\infty}
+\newcommand{\opNorm}[1]{{\left|\left| #1\right|\right|_{op}}}
+
+\newcommand{\argmax}[1]{\underset{#1}{\operatorname{argmax}}}
+\newcommand{\argmin}[1]{\underset{#1}{\operatorname{argmin}}}
+
+%- matrices -%
+\newcommand{\Mn}{M(n)}	    
+\newcommand{\GLn}{GL(n)}    %- general linear group nxn -%
+\newcommand{\Symn}{Sym(n)}  %- Symmetric matrices nxn -%
+\newcommand{\SPDn}{Sym_{\star}^{+}(n)} %- Symmetric Positive Definite nxn -%
+
+\newcommand{\Tr}{Tr} %- trace. does not include () because they can also be \left(\right). Also \Tr() looks better then \Tr{} -%
+
+%- sets and logic -%
+\newcommand{\union}{\cup}	%- set union -%
+\newcommand{\inter}{\cap}	%- set intersection -%
+\newcommand{\cartProd}{\times}	%- cartesian product -%
+
+%- named sets -%
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+%- functions -%
+\newcommand{\domainImageArrow}{\rightarrow}
+\newcommand{\funcDom}[3]{#1 : #2 \to #3}
+\newcommand{\funcDef}[5]{ #1 \colon #2 & \domainImageArrow #3 \nonumber \\ #4 & \mapsto #5} %- function definition. name, domain, image, x, f(x). MUST BE PUT INSIDE ALIGN -%
+\newcommand{\comp}{\circ} %- function composition -%
+\newcommand{\restr}[2]{ \left.#1\right|_{#2}}	%- domain restriction of a function -%
+
+%- named functions -%
+\newcommand{\indQx}{\mathbf{1}_{\Q}(x)}	    %- rational indicator function of x -%
+\newcommand{\indQ}[1]{\mathbf{1}_{\Q}(#1)}  %- rational indicator function -%
+
+
+
+% to be used in the future
+% \newcommand{\hypotenuse}{\ensuremath{a^{2}+y^{2}}} works either in or out of equation. ($$ inside equation == not good)
