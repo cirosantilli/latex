@@ -1,0 +1,121 @@
+\documentclass[12pt]{article}
+
+\title{Ciro's latex cheatsheet}
+\author{Ciro Duran Santilli}
+%\date{01/01/2000} % if commented out, uses today's date
+
+\usepackage{main}
+
+%\newcommand{\inOut}[1]{\begin{verbatim}#1\end{verbatim}#1} %CANT use verbatim here, give up, people will read at source for now!!!
+\newcommand{\inOut}[1]{#1}
+
+\begin{document}
+
+%\begin{comment}
+
+\begin{remark}
+
+Put TODOs as the first \label{TODO2} thing for development so you don't forget to do them.
+
+You may want to put those in order of urgency/difficulty here.
+
+Mark TODO location in \label{TODO1} the middle of text with labels TODO, then explain them here.
+
+Comment them out for release.
+
+\end{remark}
+
+\begin{itemize}
+  \item TODO2 deal with this TODO at all costs
+  \item TODO1 this TODO is not as important as the first one.
+  \item TODO3
+\end{itemize}
+
+\newpage
+
+%\end{comment}
+
+%\maketitle
+%\newpage
+
+\tableofcontents
+\newpage
+
+\section{Tables}
+
+\begin{example} \label{expTab1}
+A simple table
+
+\inOut{
+\begin{table}[h]
+  \centering
+  \begin{tabular}{ccc}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9 \\
+  \end{tabular}
+  \caption{caption}
+  \label{tab1}
+\end{table}
+}
+
+\end{example}\hrule
+
+\begin{remark} \label{remTab1}
+  The [h] means that the table should stay at current position (here), and not float around the page if possible.
+\end{remark}\hrule
+
+\begin{remark} \label{remTab2}
+  For complex tables with label LABEL, create a LABEL.ods spreadsheet with same name as the label and use it to make the table, then copy paste to the .tex.
+\end{remark}\hrule
+
+\section{Comments}
+
+Use the comment environment from the verbatim package.
+
+\begin{example} \label{expCom1}
+
+Next line will be commented out.
+\begin{comment}
+This line was commented off.
+\end{comment}
+\end{example}
+\hrule
+
+\section{References}
+
+\begin{remark} \label{remLab1}
+\textbackslash{}label refers to the smallest surrounding thing that is numbered, typically a section or a theorem environment. Therefore, if you simply put a label in a point paragraph, you don't normally get a link to that point of paragraph like you would in an html anchor.
+\end{remark}\hrule
+
+\begin{remark} \label{remLab2}
+  For url compatibility hyphen separation is a good idea: def-a-definition-was-here.
+\end{remark}\hrule
+
+\begin{example} \label{expRef1}
+\inOut{
+The next ref aims at this example.
+
+Ref: \ref{expRef1}
+}
+\end{example}
+
+\section{Citations}
+
+\begin{example} \label{expCite1}
+\inOut{One \cite{LL00} Two \cite{LL01}}
+\end{example}\hrule
+
+\begin{remark} \label{remCite1}
+  You have to cite a reference before it appears in the bibliography
+\end{remark}\hrule
+
+\section{Bibliography}
+
+In the bibliography command, use the same name as your .bib file.
+
+\newpage
+
+\bibliography{main}
+
+\end{document}
