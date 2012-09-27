@@ -49,8 +49,54 @@
 
 \subsubsection{Subsubsection}\label{secSssec}
 
+\paragraph{Paragraph}
+
+\begin{remark} \label{rem-paragraph}
+  Paragraph comes after subsubsection.
+  
+  To add a label and numbering to it, use:
+
+  \begin{lstlisting}
+    \setcounter{secnumdepth}{4}
+  \end{lstlisting}
+  
+  To add it to the toc, use:
+  
+  \begin{lstlisting}
+    \setcounter{tocdepth}{4}
+  \end{lstlisting}
+  
+\end{remark}\hrule
+  
+\subparagraph{Subparagraph}
+
+\begin{remark} \label{rem-subparagraph}
+  Subparagraph comes after paragraph.
+  
+  To add a label and numbering to it, use:
+
+  \begin{lstlisting}
+    \setcounter{secnumdepth}{5}
+  \end{lstlisting}
+  
+  To add it to the toc, use:
+  
+  \begin{lstlisting}
+    \setcounter{tocdepth}{5}
+  \end{lstlisting}
+  
+\end{remark}\hrule
+
+\subparagraph{Paragraph}
+
+\begin{remark} \label{paragraph}
+  Paragraph comes after subsubsection.
+  
+  To add a label to it, use \setcounter{secnumdepth}{4}
+\end{remark}\hrule
+
 \begin{remark} \label{remSec1}
-  It is a good idea not to go further than third level subsubsubsections, because users may begin to feel lost.
+  With t
   
   If you feel the need to do so, try and split your current document into two.
 \end{remark}\hrule
@@ -113,16 +159,7 @@
 
 \section{Comments}\label{secCom}
 
-\begin{remark} \label{remTab2}
-  Use the comment environment from the verbatim package.
-\end{remark}\hrule
 
-\begin{example} \label{expCom1}
-	Next line will be commented out, and therefore invisible to output.
-	\begin{comment}
-	This line was commented off.
-	\end{comment}
-\end{example}\hrule
 
 \section{References}\label{secRef}
 

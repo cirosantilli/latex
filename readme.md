@@ -22,6 +22,10 @@ or other spreadsheet applications since its much easier to keep things alligned.
 Give a lable to every table, and then name the tables as label.ods so that 
 corresponding tables can be found afterwards for further editing.
 
+# THANKS
+
+* .gitignore from https://raw.github.com/gist/149016/e056704ebab0fbcd7bf937169b4057d378d09cf8/.gitignore
+
 # TODO
 
 * write latex-to-pdf in python
