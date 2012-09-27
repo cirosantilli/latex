@@ -2,13 +2,17 @@ My latex templates.
 
 # dirs
 
-My directory structure is:
+I favor the use of the subdirectories:
 
 * data: everything that is not a tex file, such as an image, 
 * aux: auxiliary tex compilation files.
 
 While using those two directories adds some complexity to compilation,
 they clear up the main dir so much that I decided to use them anyways.
+
+To easily compile while keeping this directory structure, use:
+
+    ./latex-to-pdf main.tex
 
 # table.ods
 
@@ -19,6 +23,8 @@ Give a lable to every table, and then name the tables as label.ods so that
 corresponding tables can be found afterwards for further editing.
 
 # TODO
+
+* write latex-to-pdf in python
 
 * how to add hrule after environments
 

@@ -7,22 +7,19 @@
 \usepackage{main}
 
 %\newcommand{\inOut}[1]{\begin{verbatim}#1\end{verbatim}#1} %CANT use verbatim here, give up, people will read at source for now!!!
-\newcommand{\inOut}[1]{#1}
+\newcommand{\inOut}[1]{#1} %dummy inOut before I can find a nice way to show source and output...
 
 \begin{document}
 
 %\begin{comment}
-
 \begin{remark}
-
-Put TODOs as the first \label{TODO2} thing for development so you don't forget to do them.
-
-You may want to put those in order of urgency/difficulty here.
-
-Mark TODO location in \label{TODO1} the middle of text with labels TODO, then explain them here.
-
-Comment them out for release.
-
+	Put TODOs as the first \label{TODO2} thing for development so you don't forget to do them.
+	
+	You may want to put those in order of urgency/difficulty here.
+	
+	Mark TODO location in \label{TODO1} the middle of text with labels TODO, then explain them here.
+	
+	Comment them out for release.
 \end{remark}
 
 \begin{itemize}
@@ -32,60 +29,105 @@ Comment them out for release.
 \end{itemize}
 
 \newpage
-
 %\end{comment}
 
+%this makes the title. At first comment out to get quickly to the table of contents in dev mode.
 %\maketitle
+%\newpage
+
+%this makes the abstract. At first comment out to get quickly to the table of contents in dev mode.
+%\begin{abstract}
+%\end{abstract}
 %\newpage
 
 \tableofcontents
 \newpage
 
-\section{Tables}
+\section{Sections}\label{secSec}
+
+\subsection{Subsection}\label{secSsec}
+
+\subsubsection{Subsubsection}\label{secSssec}
+
+\begin{remark} \label{remSec1}
+  It is a good idea not to go further than third level subsubsubsections, because users may begin to feel lost.
+  
+  If you feel the need to do so, try and split your current document into two.
+\end{remark}\hrule
+
+\section{Formulas}\label{secForm}
+
+\begin{example}[Unumbered formula] \label{expFor2}
+  \inOut{
+    \begin{equation}\begin{aligned}\label{eqFor2}
+      \dot{x} = f(x,u)
+    \end{aligned}\end{equation}
+  }
+\end{example}\hrule
+
+\begin{example}[Numbered formula] \label{expFor1}
+  \inOut{
+    \begin{equation}\begin{aligned}\label{eqFor1}
+      \dot{x} = f(x,u)
+    \end{aligned}\end{equation}
+  }
+\end{example}\hrule
+
+\begin{remark}\label{remFor1} Why I use equation + aligned by default
+
+  There are simpler ways to write the equation such as backslash square brackets \textbackslash{}[\ldots\textbackslash{}],
+  but if you use those you will soon notice that you will waste a long time modifying equations
+  either to make them multiline, or to give them numbers, so it is just better to always use
+  equation + aligned unless you have a reason not to do so.
+\end{remark}\hrule
+
+\section{Tables}\label{secTab}
 
 \begin{example} \label{expTab1}
-A simple table
-
-\inOut{
-\begin{table}[h]
-  \centering
-  \begin{tabular}{ccc}
-    1 & 2 & 3 \\
-    4 & 5 & 6 \\
-    7 & 8 & 9 \\
-  \end{tabular}
-  \caption{caption}
-  \label{tab1}
-\end{table}
-}
-
+	Table \ref{tab1} is a simple table. Note how it may have floated around, so I must refer to it as table \ref{tab1}.
+	\inOut{
+		\begin{table}[h]
+		  \centering
+		  \begin{tabular}{ccc}
+		    1 & 2 & 3 \\
+		    4 & 5 & 6 \\
+		    7 & 8 & 9 \\
+		  \end{tabular}
+		  \caption{caption}
+		  \label{tab1}
+		\end{table}
+	}
 \end{example}\hrule
 
 \begin{remark} \label{remTab1}
-  The [h] means that the table should stay at current position (here), and not float around the page if possible.
+  The [h] means that the table should stay at current position (here) if possible, and not float around the page if possible.
 \end{remark}\hrule
 
 \begin{remark} \label{remTab2}
   For complex tables with label LABEL, create a LABEL.ods spreadsheet with same name as the label and use it to make the table, then copy paste to the .tex.
 \end{remark}\hrule
 
-\section{Comments}
+\begin{remark} \label{remTab3}
+  As with any other float (object that can change its position on the page to fit to content), always reference table labels when talking about tables, and never use expressions such as "the table" or "next table".
+\end{remark}\hrule
 
-Use the comment environment from the verbatim package.
+\section{Comments}\label{secCom}
+
+\begin{remark} \label{remTab2}
+  Use the comment environment from the verbatim package.
+\end{remark}\hrule
 
 \begin{example} \label{expCom1}
+	Next line will be commented out, and therefore invisible to output.
+	\begin{comment}
+	This line was commented off.
+	\end{comment}
+\end{example}\hrule
 
-Next line will be commented out.
-\begin{comment}
-This line was commented off.
-\end{comment}
-\end{example}
-\hrule
-
-\section{References}
+\section{References}\label{secRef}
 
 \begin{remark} \label{remLab1}
-\textbackslash{}label refers to the smallest surrounding thing that is numbered, typically a section or a theorem environment. Therefore, if you simply put a label in a point paragraph, you don't normally get a link to that point of paragraph like you would in an html anchor.
+	\textbackslash{}label refers to the smallest surrounding thing that is numbered, typically a section or a theorem environment. Therefore, if you simply put a label in a point paragraph, you don't normally get a link to that point of paragraph like you would in an html anchor.
 \end{remark}\hrule
 
 \begin{remark} \label{remLab2}
@@ -93,14 +135,14 @@ This line was commented off.
 \end{remark}\hrule
 
 \begin{example} \label{expRef1}
-\inOut{
-The next ref aims at this example.
-
-Ref: \ref{expRef1}
-}
+	\inOut{
+		The next ref aims at this example.
+		
+		Ref: \ref{expRef1}
+	}
 \end{example}
 
-\section{Citations}
+\section{Citations and bibliography}\label{secCit}
 
 \begin{example} \label{expCite1}
 \inOut{One \cite{LL00} Two \cite{LL01}}
@@ -110,12 +152,12 @@ Ref: \ref{expRef1}
   You have to cite a reference before it appears in the bibliography
 \end{remark}\hrule
 
-\section{Bibliography}
+\begin{remark} \label{remCite2}
+  In the bibliography command, use the same name as your .bib file.
+\end{remark}\hrule
 
-In the bibliography command, use the same name as your .bib file.
-
+\section{Bibliography}\label{secBib}
 \newpage
-
 \bibliography{main}
 
 \end{document}

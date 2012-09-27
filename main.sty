@@ -9,8 +9,16 @@
 \usepackage{natbib}	% citep
 \usepackage{verbatim} % comment enviroment
 \usepackage{listings} % lstlisting environment
-%\usepackage[notref,notcite]{showkeys} % shows labels. Use labels with at most 7 chars or you fall off pdf in A5 kindle friendly mode
+
+%<sec>you might want to comment the following out since they make important changes to standard
 \usepackage[a5paper]{geometry} % A5 output. You should use this always for e reader users who have small screens
+\usepackage[notref,notcite]{showkeys} % shows labels. Use labels with at most 7 chars or you fall off pdf in A5 kindle friendly mode
+
+\usepackage{sectsty}
+\sectionfont{\sectionrule{0pt}{0pt}{-5pt}{0.8pt}} %this will add a hrul after each section 5pt below baseline
+\subsectionfont{\sectionrule{0pt}{0pt}{-5pt}{0.8pt}} %this will add a hrul after each section 5pt below baseline
+\subsubsectionfont{\sectionrule{0pt}{0pt}{-5pt}{0.8pt}} %this will add a hrul after each section 5pt below baseline
+%</sec>
 
 %\usepackage{tikz} % not Miktex standard
 %\usepackage{booktabs} % not Miktex standard
@@ -56,15 +64,17 @@
 \bibliographystyle{plain}
 
 %-------- references -%
+%\usepackage{letltxmacro}
+%\LetLtxMacro{\oldlabel}{\label}
+%\renewcommand{\label}[1]{{\oldlabel{#1}}
+
 \newcommand{\chapRef}[1]{\hyperref[#1]{Chapter \ref*{#1}}}
 \newcommand{\secRef}[1]{\hyperref[#1]{Section \ref*{#1}}}	%- Section reference. -%
-
 \newcommand{\defRef}[1]{\hyperref[#1]{Definition \ref*{#1}}}
 \newcommand{\expRef}[1]{\hyperref[#1]{Example \ref*{#1}}}
 \newcommand{\theoRef}[1]{\hyperref[#1]{Theorem \ref*{#1}}}
 \newcommand{\propRef}[1]{\hyperref[#1]{Proposition \ref*{#1}}}
 \newcommand{\remRef}[1]{\hyperref[#1]{Remark \ref*{#1}}}
-
 \newcommand{\eqRef}[1]{\hyperref[#1]{(\ref*{#1})}} %- Equation reference. between parenthesis -%
 \newcommand{\figRef}[1]{\hyperref[#1]{Figure \ref*{#1}}} %- Figure reference. between parenthesis -%
 
