@@ -6,8 +6,9 @@
 
 \usepackage{main}
 
+%-- definitions which are useful for this document only --%
 %\newcommand{\inOut}[1]{\begin{verbatim}#1\end{verbatim}#1} %CANT use verbatim here, give up, people will read at source for now!!!
-\newcommand{\inOut}[1]{#1} %dummy inOut before I can find a nice way to show source and output...
+\newcommand{\inOut}[1]{#1} %dummy inOut before I can find a nice way to show source and output in one go.
 
 \begin{document}
 
@@ -159,7 +160,35 @@
 
 \section{Comments}\label{secCom}
 
+\begin{example} \label{expCom1}
+  %\inOut{
+		Next line will be commented out, and therefore invisible to output.
+		\begin{comment}
+		This line was commented off.
+		\end{comment}
+	%}
+\end{example}\hrule
 
+\section{Computer code}\label{secCode}
+
+\begin{remark} \label{remCode1}
+  Use:
+  \begin{lstlisting}
+\usepackage{lstlisting}
+  \end{lstlisting}
+\end{remark}\hrule
+
+\begin{example} \label{expCom1}
+  This is how you use it:
+	%\inOut{
+		\begin{lstlisting}
+if i in is:
+    echo i
+else:
+    echo -i
+		\end{lstlisting}
+	%}
+\end{example}\hrule
 
 \section{References}\label{secRef}
 

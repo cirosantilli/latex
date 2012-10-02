@@ -1,4 +1,4 @@
-My latex templates.
+my latex templates
 
 # dirs
 
@@ -7,20 +7,34 @@ I favor the use of the subdirectories:
 * data: everything that is not a tex file, such as an image, 
 * aux: auxiliary tex compilation files.
 
-While using those two directories adds some complexity to compilation,
-they clear up the main dir so much that I decided to use them anyways.
+while using those two directories adds some complexity to compilation,
+they clear up the main dir so much that I decided to use them anyways
 
 To easily compile while keeping this directory structure, use:
 
     ./latex-to-pdf main.tex
 
-# table.ods
+# files
 
-It is much easier to edit tables in [libreoffice](http://www.libreoffice.org/features/calc/)
-or other spreadsheet applications since its much easier to keep things alligned.
+## template.tex
 
-Give a lable to every table, and then name the tables as label.ods so that 
-corresponding tables can be found afterwards for further editing.
+when starting new projects, copy this template
+
+## main.tex
+
+cheatsheet of lots of latex commands
+
+## main.sty
+
+both cheatsheet and template for new projects
+
+## table.ods
+
+it is much easier to edit tables in [libreoffice](http://www.libreoffice.org/features/calc/)
+or other spreadsheet applications since its much easier to keep things alligned
+
+give a lable to every table, and then name the tables as label.ods so that 
+corresponding tables can be found afterwards for further editing
 
 # THANKS
 
