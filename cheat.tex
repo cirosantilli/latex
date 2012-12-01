@@ -44,6 +44,12 @@
 \tableofcontents
 \newpage
 
+\section{Symbols}\label{symbols}
+
+\begin{itemize}
+  \item sharp: C\verb!#!
+\end{itemize}
+
 \section{Sections}\label{secSec}
 
 \subsection{Subsection}\label{secSsec}
@@ -128,6 +134,29 @@
   equation + aligned unless you have a reason not to do so.
 \end{remark}\hrule
 
+\section{Figures}\label{secTab}
+
+figures, images, graphics
+
+see figure \ref{fig-label}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=5cm]{image.png}
+\caption{caption here}
+\label{fig-label}
+\end{figure}
+
+allowed formats:
+\begin{itemize}
+  \item png
+\end{itemize}
+
+non-allowed formats:
+\begin{itemize}
+  \item gif
+\end{itemize}
+
 \section{Tables}\label{secTab}
 
 \begin{example} \label{expTab1}
@@ -136,6 +165,8 @@
 		\begin{table}[h]
 		  \centering
 		  \begin{tabular}{ccc}
+        h1 & h2 & h3 \\  		    
+		    \hline
 		    1 & 2 & 3 \\
 		    4 & 5 & 6 \\
 		    7 & 8 & 9 \\
@@ -178,7 +209,7 @@
   \end{lstlisting}
 \end{remark}\hrule
 
-\begin{example} \label{expCom1}
+\begin{example} \label{expLst1}
   This is how you use it:
 	%\inOut{
 		\begin{lstlisting}
@@ -189,6 +220,15 @@ else:
 		\end{lstlisting}
 	%}
 \end{example}\hrule
+
+\begin{example} \label{expLst2}
+  Inline listings:
+  
+	%\inOut{
+		the function \lstinline|func_f(void a)| is useful
+	%}
+\end{example}\hrule
+
 
 \section{References}\label{secRef}
 
@@ -208,10 +248,48 @@ else:
 	}
 \end{example}
 
+\section{Hyperlinks and urls}\label{hyperlinks-urls}
+
+external links:
+
+\url{http://www.wikibooks.org}
+
+\href{http://www.wikibooks.org}{wikibooks home}
+
+relative links:
+
+\url{./main.sty}
+
+\href{./main.sty}{link to main.sty}
+
+inner links in document:
+
+\hypertarget{label}{target caption}
+
+\hyperlink{label}{link caption}
+
+\section{Quotations}\label{quotations}
+
+From \cite{Aa00}:
+\begin{quote}
+Some quoted text, single paragraph. Some quoted text, single paragraph. Some quoted text, single paragraph. 
+Some quoted text, single paragraph. Some quoted text, single paragraph. Some quoted text, single paragraph. 
+Some quoted text, single paragraph. Some quoted text, single paragraph. Some quoted text, single paragraph. 
+Some quoted text, single paragraph. Some quoted text, single paragraph. Some quoted text, single paragraph. 
+Some quoted text, single paragraph. Some quoted text, single paragraph. Some quoted text, single paragraph. 
+Some quoted text, single paragraph. Some quoted text, single paragraph. Some quoted text, single paragraph. 
+Some quoted text, single paragraph. Some quoted text, single paragraph. Some quoted text, single paragraph. 
+\end{quote}
+
+quotation
+    for use with longer quotations, of more than one paragraph, because it indents the first line of each paragraph.
+verse
+    is for quotations where line breaks are important, such as poetry. Once in, new stanzas are created with a blank line, and new lines within a stanza are indicated using the newline command, \\. If a line takes up more than one line on the page, then all subsequent lines are indented until explicitly separated with \\. 
+
 \section{Citations and bibliography}\label{secCit}
 
 \begin{example} \label{expCite1}
-\inOut{One \cite{LL00} Two \cite{LL01}}
+\inOut{One \cite{Aa01} Two \cite{LL01}}
 \end{example}\hrule
 
 \begin{remark} \label{remCite1}
@@ -224,6 +302,6 @@ else:
 
 \section{Bibliography}\label{secBib}
 \newpage
-\bibliography{main}
+\bibliography{cheat}
 
 \end{document}

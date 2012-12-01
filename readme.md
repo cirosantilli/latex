@@ -2,10 +2,9 @@ my latex templates
 
 # dirs
 
-I favor the use of the subdirectories:
-
-* data: everything that is not a tex file, such as an image, 
-* aux: auxiliary tex compilation files.
+* media: everything that is not a tex file, such as an image or table
+* _aux: auxiliary tex compilation files.
+* _out: output files such as pdf
 
 while using those two directories adds some complexity to compilation,
 they clear up the main dir so much that I decided to use them anyways
