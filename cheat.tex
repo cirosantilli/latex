@@ -12,7 +12,12 @@
 
 \begin{document}
 
+\tableofcontents
+\newpage
+
 %\begin{comment}
+\section{TODO}
+
 \begin{remark}
 	Put TODOs as the first \label{TODO2} thing for development so you don't forget to do them.
 	
@@ -28,26 +33,71 @@
   \item TODO1 this TODO is not as important as the first one.
   \item TODO3
 \end{itemize}
+%\begin{comment}
+
+\section{title pages} \label{title-pages}
+
+\maketitle
+\newpage
+
+%#complex title page
+\begin{titlepage}
+COMPLEX TITLE PAGE
+
+PROMOTION 2009
+
+DURAN SANTILLI Ciro
+
+\vspace{40 mm}
+
+\begin{center}
+
+{\large RAPPORT DE STAGE DE RECHERCHE}\\[0.5cm]
+
+\underline{ \large \bfseries \itshape Flatness in control systems}
+
+\vspace{10 mm}
+
+\underline{ \bfseries NON CONFIDENTIEL }
+
+PUBLICATION
+
+\end{center}
+
+\vspace{40 mm}
+
+\underline{Option} : Mathématiques apliquées
+
+\underline{Champ de l'option} : Automatique et Contrôle
+
+\vspace{5 mm}
+
+INRIA Sophia Antipolis Méditerrané
+
+2004 Route des Lucioles - BP93
+
+06902 SOPHIA ANTIPOLIS Cedex France
+\end{titlepage}
 
 \newpage
-%\end{comment}
 
-%this makes the title. At first comment out to get quickly to the table of contents in dev mode.
-%\maketitle
-%\newpage
-
-%this makes the abstract. At first comment out to get quickly to the table of contents in dev mode.
-%\begin{abstract}
-%\end{abstract}
-%\newpage
-
-\tableofcontents
+\begin{abstract}
+\end{abstract}
 \newpage
 
 \section{Symbols}\label{symbols}
 
 \begin{itemize}
-  \item sharp: C\verb!#!
+  \item sharp: C\verb|#|
+  
+  \item ellipsis:
+  \begin{itemize}
+	  \item  \ldots - horizontally at bottom of line
+	  \item  $\cdots$ - horizontally center of line (math mode only)
+	  \item  $\ddots$ - diagonal (math mode only)
+	  \item  $\vdots$ - vertical (math mode only)  
+  \end{itemize}
+  
 \end{itemize}
 
 \section{Sections}\label{secSec}
@@ -134,6 +184,18 @@
   equation + aligned unless you have a reason not to do so.
 \end{remark}\hrule
 
+\subsection{Cases}\label{cases}
+
+case function definition
+
+\begin{equation}
+f(x) =
+\begin{cases}
+  x & x \le 0 \\
+  -x & x>0
+\end{cases}
+\end{equation}
+
 \section{Figures}\label{secTab}
 
 figures, images, graphics
@@ -141,15 +203,16 @@ figures, images, graphics
 see figure \ref{fig-label}
 
 \begin{figure}[htb]
-\centering
-\includegraphics[width=5cm]{image.png}
-\caption{caption here}
-\label{fig-label}
+  \centering
+  \includegraphics[width=5cm]{image.png}
+  \caption{caption here}
+  \label{fig-label}
 \end{figure}
 
 allowed formats:
 \begin{itemize}
   \item png
+  \item jpg
 \end{itemize}
 
 non-allowed formats:
@@ -267,6 +330,34 @@ inner links in document:
 \hypertarget{label}{target caption}
 
 \hyperlink{label}{link caption}
+
+\section{variables and conditional compilation}
+
+\begin{lstlisting}
+\def\mycmd{1}
+
+\ifx\mycmd\undefined
+undefed
+\else
+  \if\mycmd1
+  defed, 1
+  \else
+  defed
+  \fi
+\fi
+
+\def\mycmd{0}
+
+\ifx\mycmd\undefined
+undefed
+\else
+  \if\mycmd1
+  defed, 1
+  \else
+  defed
+  \fi
+\fi
+\end{lstlisting}
 
 \section{Quotations}\label{quotations}
 
