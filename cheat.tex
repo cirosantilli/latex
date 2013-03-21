@@ -35,7 +35,7 @@
 \end{itemize}
 %\begin{comment}
 
-\section{title pages} \label{title-pages}
+\section{Title pages} \label{title-pages}
 
 \maketitle
 \newpage
@@ -98,7 +98,62 @@ INRIA Sophia Antipolis Méditerrané
 	  \item  $\vdots$ - vertical (math mode only)  
   \end{itemize}
   
+  \item international:
+  
+    with \lstinline|\usepackage[utf8]{inputenc}|:
+    
+    á à â ä
+    
+    chinese does not work: %中文
+  
 \end{itemize}
+
+\section{Style}\label{style}
+
+\begin{itemize}
+  
+  \item {\Large Large brackets}
+  \item \begin{Large}Large environment\end{Large}
+
+    posisble sizes:
+    \begin{lstlisting}
+      \tiny
+      \scriptsize
+      \footnotesize
+      \small
+      \normalsize
+      \large
+      \Large
+      \LARGE
+      \huge
+      \Huge 
+    \end{lstlisting}
+  \item \textbf{bold}
+  \item \textit{italics}
+  \item \underline{underline underline}
+  \item \uline{uline uline}. Requires \lstinline|\usepackage{ulem}|
+  
+\end{itemize}
+
+\begin{center}
+  center
+  
+  center
+\end{center}
+
+\begin{flushright}
+  right
+  
+  right
+\end{flushright}
+
+vspace 1cm
+
+\vspace{1cm}
+
+vspace 1cm \\[1cm]
+
+vspace 1cm
 
 \section{Sections}\label{secSec}
 
@@ -252,6 +307,31 @@ non-allowed formats:
   As with any other float (object that can change its position on the page to fit to content), always reference table labels when talking about tables, and never use expressions such as "the table" or "next table".
 \end{remark}\hrule
 
+\begin{example}[column formatting] \label{expTab2}
+	This is how you format individual table columns with \lstinline|\usepackage{array}|:
+	\inOut{
+		\begin{table}[h]
+		  \centering
+		  \begin{tabular}{  l c rp{1cm} p{1cm} >{\bf}c >{\it}c | c || c @{ abc } c c}  		    
+		    1 & 2 & 3 & 4 & 5 5 5 5 5 & 6 & 7 & 8 & 9 & 10 & 111111111111111111111111111111111111111111111 \\
+		    1 & 2 & 3 & 4 & 5 5 5 5 5 & 6 & 7 & 8 & 9 & 10 & 111111111111111111111111111111111111111111111 \\
+		  \end{tabular}
+		\end{table}
+	}
+\end{example}\hrule
+
+Line breaks in a table:
+
+\begin{tabular}{ l l }		    
+	a & \begin{tabular}[t]{@{}l@{}} a \\ b \end{tabular} \\
+  \hline
+	a & \begin{tabular}[c]{@{}l@{}} a \\ b \end{tabular} \\
+	\hline
+  a & \begin{tabular}[b]{@{}l@{}} a \\ b \end{tabular} \\
+	\hline	
+\end{tabular}
+
+
 \section{Comments}\label{secCom}
 
 \begin{example} \label{expCom1}
@@ -291,7 +371,6 @@ else:
 		the function \lstinline|func_f(void a)| is useful
 	%}
 \end{example}\hrule
-
 
 \section{References}\label{secRef}
 
