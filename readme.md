@@ -1,4 +1,20 @@
-my latex templates
+my latex cheats and templates
+
+# ubuntu install
+
+texlive-full has enormous size (1Gb+) and lots of packages
+
+this is the best works out of the box bet
+while ubuntu latex has no package manager (windows has one...)
+
+    #sudo aptitude install -y texlive
+    sudo aptitude install -y texlive-full
+
+# texmaker editor
+
+easy to user latex editor:
+    
+    sudo aptitude install -y texmaker
 
 # dirs
 
@@ -8,10 +24,6 @@ my latex templates
 
 while using those two directories adds some complexity to compilation,
 they clear up the main dir so much that I decided to use them anyways
-
-To easily compile while keeping this directory structure, use:
-
-    ./latex-to-pdf main.tex
 
 # files
 
@@ -41,9 +53,7 @@ corresponding tables can be found afterwards for further editing
 
 # TODO
 
-* write latex-to-pdf in python
-
-* how to add hrule after environments
+* how to add hrule after every environment
 
 * how to create theorem environments with label (bold Theorem thing at beginning)
     given in source and not in definition
