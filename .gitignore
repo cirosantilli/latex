@@ -24,3 +24,6 @@ _aux/
 *.mtc1
 *.out
 *.synctex.gz
+
+*.ps
+*.pdf
