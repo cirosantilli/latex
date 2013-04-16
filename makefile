@@ -74,9 +74,12 @@ help:
 	@echo '    make clean'
 	@echo '  #views the default output file with our default view command'
 	@echo '    make run'
-	#TODO manage page to allow this:
-	#@echo '  #views given file with given command:'
-	#@echo "    make run VIEWER='\"evince -f\"'"
+	@echo '  #view another file:'
+	@echo '    make run VIEW=main'
+	@echo '  #will view file main$$(OUT_EXT)'
+	@#TODO manage page to allow this:
+	@#echo '  #views given file with given command:'
+	@#echo "    make run VIEWER='\"evince -f\"'"
 
 mkdir:
 	mkdir -p "$(AUX_DIR)"
