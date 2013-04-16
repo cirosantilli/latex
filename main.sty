@@ -2,20 +2,23 @@
 
 %no conflicts as far as I can tell
 
+%only included here are commands that can be used on almost any file.
+%if you think a command is only useful for certain files, don't include it here, and put it into your specific project.
+
 \ProvidesPackage{main}
 
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amsthm}
-\usepackage{makeidx} % makes index
+\usepackage{makeidx}          % makes index
 \usepackage{graphicx}
-\usepackage{natbib}	% citep
-\usepackage{verbatim} % comment enviroment
-\usepackage{listings} % lstlisting environment
-\usepackage[utf8]{inputenc} % á à â work, but not 中文
-\usepackage{array} % format individual table columns
-\usepackage{ulem} % underline with \uline{}
+\usepackage{natbib}	          % citep
+\usepackage{verbatim}         % comment enviroment
+\usepackage{listings}         % lstlisting environment
+\usepackage[utf8]{inputenc}   % á à â work, but not 中文
+\usepackage{array}            % format individual table columns
+\usepackage{ulem}             % underline with \uline{}
 
 \usepackage[linkbordercolor={1 0 0}]{hyperref} %red borders. for printing the pdf, the borders dissapear!
 
@@ -23,17 +26,12 @@
 %\usepackage{booktabs} % not Miktex standard
 %\usepackage{tocloft} % not Miktex standard
 
-%<sec>you might want to comment the following out since they make important changes to standard
-\usepackage[a5paper]{geometry} % A5 output. You should use this always for e reader users who have small screens (ereaders)
-%\usepackage[top=2in, bottom=1.5in, left=1in, right=1in]{geometry} % set margins
-%\usepackage[margin=1in]{geometry} % set margins
-\usepackage[notref,notcite]{showkeys} % shows labels. Use labels with at most 7 chars or you fall off pdf in A5 kindle friendly mode
+%#important changes
 
 \usepackage{sectsty}
-\sectionfont{\sectionrule{0pt}{0pt}{-5pt}{0.8pt}} %this will add a hrul after each section 5pt below baseline
-\subsectionfont{\sectionrule{0pt}{0pt}{-5pt}{0.8pt}} %this will add a hrul after each section 5pt below baseline
+\sectionfont{\sectionrule{0pt}{0pt}{-5pt}{0.8pt}}       %this will add a hrul after each section 5pt below baseline
+\subsectionfont{\sectionrule{0pt}{0pt}{-5pt}{0.8pt}}    %this will add a hrul after each section 5pt below baseline
 \subsubsectionfont{\sectionrule{0pt}{0pt}{-5pt}{0.8pt}} %this will add a hrul after each section 5pt below baseline
-%</sec>
 
 \graphicspath{{./media/}}
 %look unser ./media/ for graphics

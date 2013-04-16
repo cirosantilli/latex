@@ -30,6 +30,9 @@ INS_NODIR		:= $(notdir $(INS))
 OUTS_NODIR	:= $(patsubst %$(IN_EXT),%$(OUT_EXT),$(INS_NODIR))
 OUTS				:= $(addprefix $(OUT_DIR),$(OUTS_NODIR))
 
+STYS				:= $(wildcard $(IN_DIR)*.sty)
+BIBS				:= $(wildcard $(IN_DIR)*.bib)
+
 	#path of tex file to be viewed (needed by synctex):
 VIEW_TEX_PATH	:= $(IN_DIR)$(VIEW)$(IN_EXT)
 	#path of output file to be viewed:
@@ -42,7 +45,8 @@ VIEW_OUT_PATH	:= $(OUT_DIR)$(VIEW)$(OUT_EXT)
 
 all: mkdir $(OUTS)
 
-$(OUT_DIR)%$(OUT_EXT): $(IN_DIR)%$(IN_EXT)
+	#$(STYS) $(BIBS) are here so that if any include files are modified, make again:
+$(OUT_DIR)%$(OUT_EXT): $(IN_DIR)%$(IN_EXT) $(STYS) $(BIBS)
 	# make pdf with bibtex and synctex:
 	$(CCC) "$<"
 	#allowing for error here in case tex has no bib files:
@@ -87,7 +91,7 @@ mkdir:
 run: all
 	( \
 		PDF_PAGE=1 ;\
-		$(VIEWER) -p "$$PDF_PAGE" $(VIEW_OUT_PATH) ;\
+		nohup $(VIEWER) -p "$$PDF_PAGE" $(VIEW_OUT_PATH) >/dev/null & \
 	)
 
 ubuntu_install_deps:
