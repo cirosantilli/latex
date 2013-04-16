@@ -27,13 +27,13 @@ they clear up the main dir so much that I decided to use them anyways
 
 # files
 
+## cheat.tex
+
+how to do things in latex
+
 ## template.tex
 
 when starting new projects, copy this template
-
-## main.tex
-
-cheatsheet of lots of latex commands
 
 ## main.sty
 
