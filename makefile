@@ -1,26 +1,32 @@
 #compiles all tex files in current dir as pdfs
 
 #may take input from any dir, and put output in any dir.
-#note however that some programs like synctex are quite fussy about not using current dir.
+
+##vim configuration
+
+	#au BufEnter,BufRead *.tex nnoremap <F6> :w<CR>:exe ':sil ! make run VIEW=''"%:r"'' LINE=''"' . line(".") . '"'''<CR>
 
 	#extension of input files:
 override IN_EXT   	?= .tex
 	#directory from which input files come. slash termianted:
 override IN_DIR   	?= ./
 
-	#dir where auxiliary files such as `.out` will be put. slash terminated:
-override AUX_DIR  	?= _aux/
 	#dir where output files such as .pdf will be put. slash terminated:
 override OUT_DIR  	?= _out/
+	#dir where auxiliary files such as `.out` will be put. slash terminated.
+	#TODO: get this to work for a different dir than OUT_DIR. The problem is that synctex won't allow this!
+#override AUX_DIR  	?= _aux/
+override AUX_DIR  	?= $(OUT_DIR)
 	#extension of output:
 override OUT_EXT 		?= .pdf
 
 	#basename without extension of file to run:
 override VIEW				?= cheat
-	#initial page on view (begs to be overriden with vim command):
-override VIEW_LINE	?= 1
-	#viewer command used to view the output:
-override VIEWER 		?= okular --unique
+	#uses synctex to go to the page corresponding to the given line.
+override LINE				?= 1
+	#viewer command used to view the output.
+	#$$PAGE is a bash variable that contains the page to open the document at. It is typically calculated by synctex in this makefile.
+override VIEWER 		?= okular --unique -p $$PAGE
 
 	#compile command
 override CCC 				?= pdflatex -interaction=nonstopmode -output-directory "$(AUX_DIR)" 
@@ -76,7 +82,7 @@ help:
 	@echo '    make run'
 	@echo '  #view another file:'
 	@echo '    make run VIEW=main'
-	@echo '  #will view file main$$(OUT_EXT)'
+	@echo '  #will view file main$$(OUT_EXT) (main.pdf or main.ps typically)'
 	@#TODO manage page to allow this:
 	@#echo '  #views given file with given command:'
 	@#echo "    make run VIEWER='\"evince -f\"'"
@@ -87,14 +93,17 @@ mkdir:
 
 #view output.
 #called `run` for compatibility with makefiles that make executables.
-#TODO: get synctex to work!!!
-#SYNCTEX_OUT="`synctex view -i "$(VIEW_LINE):1:$(VIEW_TEX_PATH)" -o "$(VIEW_OUT_PATH)" -d "$(AUX_DIR)"`" ;\
-#PDF_PAGE="`echo "$$SYNCTEX_OUT" | awk -F: '$$1 ~/Page/ { print $$2; exit }'`" ;\
+#TODO: get synctex to work if aux != out!!
+#PAGE="`echo "$$SYNCTEX_OUT" | awk -F: '$$1 ~/Page/ { print $$2; exit }'`" ;\
+#SYNCTEX_OUT="`synctex view -i "$(LINE):1:$(VIEW_TEX_PATH)" -o "$(VIEW_OUT_PATH)" -d "$(../AUX_DIR)"`" ;\
 #echo $$PDF_PAGE ;
 run: all
 	( \
-		PDF_PAGE=1 ;\
-		nohup $(VIEWER) -p "$$PDF_PAGE" $(VIEW_OUT_PATH) >/dev/null & \
+		PAGE=1 ;\
+		SYNCTEX_OUT="`synctex view -i "$(LINE):1:$(VIEW_TEX_PATH)" -o "$(VIEW_OUT_PATH)"`" ;\
+		PAGE="`echo "$$SYNCTEX_OUT" | awk -F: '$$1 ~/Page/ { print $$2; exit }'`" ;\
+		echo $$SYNCTEX_OUT ;\
+		nohup $(VIEWER) $(VIEW_OUT_PATH) >/dev/null & \
 	)
 
 ubuntu_install_deps:
