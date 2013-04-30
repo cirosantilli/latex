@@ -99,10 +99,8 @@ mkdir:
 #echo $$PDF_PAGE ;
 run: all
 	( \
-		PAGE=1 ;\
 		SYNCTEX_OUT="`synctex view -i "$(LINE):1:$(VIEW_TEX_PATH)" -o "$(VIEW_OUT_PATH)"`" ;\
 		PAGE="`echo "$$SYNCTEX_OUT" | awk -F: '$$1 ~/Page/ { print $$2; exit }'`" ;\
-		echo $$SYNCTEX_OUT ;\
 		nohup $(VIEWER) $(VIEW_OUT_PATH) >/dev/null & \
 	)
 
